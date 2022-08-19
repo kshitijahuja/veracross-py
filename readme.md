@@ -1,12 +1,12 @@
 
 # Veracross Data API v3
 
-Basic libarary to make API calls to the v3 of Veracross API.
+Basic library to make API calls to the v3 of Veracross API.
 
 
 ## Getting Started
 
-As a first step, ensure that you an oauth app created in Veracross. Read more here:
+As a first step, ensure that you create an oauth app in Veracross. Read more here:
 https://api-docs.veracross.com/docs/docs/ZG9jOjMzNzcxODA-general-principles
 
 
@@ -18,7 +18,7 @@ You will then be able to access credentials like client_id and client_secret tha
 - Clone the repository. 
 - Specify the client_id, client_secret, school_route in the config.py file.
 
-This library can make read and list calls for now. There are two example files for each type to help 
+This library can make read and list calls for now. There are two example files included - one for each type - to help 
 you understand how to make the calls.
 
 
