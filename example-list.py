@@ -8,7 +8,7 @@ import veracross as v
 vc = v.Client(config.client_id, config.client_secret, config.school_route)
 
 # 3: Specify scopes specific to the call you wish to make
-# Note: ensure these client_id has been assigned these scopes in Veracross
+# Note: ensure that this client_id has been assigned these scopes in Veracross as well
 scopes = "staff_faculty:list"
 
 # 4: List call may include params (optional)
@@ -17,7 +17,8 @@ params = {
 }
 
 # 5: finally, call the endpoint!
-data = vc.list(scopes, "staff_faculty") # call the endpoint (from Veracross API docs that you wish to call eg. students, staff_faculty etc.)
+data = vc.list(scopes, "staff_faculty") # call the endpoint (in Veracross API docs these are the path like students, staff_faculty etc.)
+# more examples:
 # data = vc.list(scopes, "students") 
 # data = vc.list(scopes, "parents") 
 

@@ -88,7 +88,6 @@ class Client:
             raise ValueError(f"Error setting the scopes.")
             # return 'false' # error - setting scopes
 
-
     # Read
     def read(self, scopes, path):
         client_id = self.client_id
@@ -108,6 +107,98 @@ class Client:
                 resp = requests.get(url=url_address, headers=headers)
                 if(resp.status_code == 200):
                     this_response = resp.json()['data']
+                    return this_response
+                else:                        
+                    raise ValueError(f"API call failed with error code {resp.status_code}. Please refer API documentation.")
+                    # return 'false' # error - http
+            else:
+                raise ValueError(f"Error retrieving access token.")
+                # return 'false' # error - access token
+        else:
+            raise ValueError(f"Error setting the scopes.")
+            # return 'false' # error - setting scopes
+
+    # Update
+    def update(self, scopes, path, payload):
+        client_id = self.client_id
+        client_secret = self.client_secret
+        school_route = self.school_route
+        api_base_url = 'https://api.veracross.com/'+school_route+'/v3'
+
+        if(scopes):
+            access_token = self.get_access_token(scopes)
+            if(access_token):
+                url_address = api_base_url+'/'+path # Set destination URL here
+                headers = {
+                    "Content-Type": "application/json",
+                    "authorization": "Bearer "+ access_token
+                }
+
+                resp = requests.patch(url=url_address, json=payload, headers=headers)
+                if(resp.status_code == 204):
+                    this_response = resp.status_code
+                    return this_response
+                else:                        
+                    raise ValueError(f"API call failed with error code {resp.status_code}. Please refer API documentation.")
+                    # return 'false' # error - http
+            else:
+                raise ValueError(f"Error retrieving access token.")
+                # return 'false' # error - access token
+        else:
+            raise ValueError(f"Error setting the scopes.")
+            # return 'false' # error - setting scopes
+
+    # Create
+    def create(self, scopes, path, payload):
+        client_id = self.client_id
+        client_secret = self.client_secret
+        school_route = self.school_route
+        api_base_url = 'https://api.veracross.com/'+school_route+'/v3'
+
+        if(scopes):
+            access_token = self.get_access_token(scopes)
+            if(access_token):
+                url_address = api_base_url+'/'+path # Set destination URL here
+                headers = {
+                    "Content-Type": "application/json",
+                    "authorization": "Bearer "+ access_token
+                }
+
+                resp = requests.post(url=url_address, json=payload, headers=headers)
+                if(resp.status_code == 201):
+                    this_response = resp.status_code
+                    return this_response
+                else:                        
+                    error_code = resp.json()['error_id']
+                    error_message = resp.json()['error']
+                    raise ValueError(f"API call failed with error code {error_code}. Error Message: {error_message}. Please refer API documentation. ")
+                    # return 'false' # error - http
+            else:
+                raise ValueError(f"Error retrieving access token.")
+                # return 'false' # error - access token
+        else:
+            raise ValueError(f"Error setting the scopes.")
+            # return 'false' # error - setting scopes
+
+    # Delete
+    def delete(self, scopes, path):
+        client_id = self.client_id
+        client_secret = self.client_secret
+        school_route = self.school_route
+        api_base_url = 'https://api.veracross.com/'+school_route+'/v3'
+
+        if(scopes):
+            access_token = self.get_access_token(scopes)
+            if(access_token):
+                url_address = api_base_url+'/'+path # Set destination URL here
+                headers = {
+                    "Content-Type": "application/json",
+                    "authorization": "Bearer "+ access_token
+                }
+
+                resp = requests.delete(url=url_address, headers=headers)
+                if(resp.status_code == 204):
+                    this_response = resp.status_code
                     return this_response
                 else:                        
                     raise ValueError(f"API call failed with error code {resp.status_code}. Please refer API documentation.")
