@@ -1,0 +1,10 @@
+[project]
+name = "veracross-py"
+version = "0.1.0"
+description = "Python client for Veracross API"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[tool.uv]
