@@ -22,7 +22,7 @@ This library can make read and list calls for now. There are two example files i
 you understand how to make the calls.
 
 
-If you have any questions, you may reach out to us at help@academicdatasolutios.com or via our website
+If you have any questions, you may reach out to us at help@academicdatasolutions.com or via our website
 https://academicdatasolutions.com
 
 
